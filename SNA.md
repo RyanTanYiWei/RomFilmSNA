@@ -432,7 +432,9 @@ text(-1.2, 1.2, paste("Modularity, Q =", round(max(com$modularity),3)))
 
 ![](SNA_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-11-2.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-11-3.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-11-4.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-11-5.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-11-6.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-11-7.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-11-8.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-11-9.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-11-10.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-11-11.png)<!-- -->
 
-\#4 CENTRALITY \[Micro\] How does good representation look like?
+# 4 CENTRALITY \[Micro\]
+
+How does good representation look like?
 
 ## 4a/ Understanding Main Characters
 

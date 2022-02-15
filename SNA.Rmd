@@ -391,7 +391,7 @@ text(-1.2, 1.2, paste("Modularity, Q =", round(max(com$modularity),3)))
 ```
 
 
-#4 CENTRALITY [Micro]
+# 4 CENTRALITY [Micro]
 How does good representation look like?
 
 ## 4a/ Understanding Main Characters
