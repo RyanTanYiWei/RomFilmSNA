@@ -1,6 +1,5 @@
 Gender Representation in Romance Movies using Network Analysis
 ================
-Ryan and Dina
 
 ``` r
 #Clear
