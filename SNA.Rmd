@@ -63,7 +63,7 @@ for (i in 1:no_films){
 Check Dataframe
 ```{r}
 all = all %>% arrange(year)
-print(all)
+head(all)
 ```
 
 #1 Data Exploration: Raw Network Statistics
