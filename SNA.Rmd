@@ -15,7 +15,7 @@ library(tidyverse)
 library(igraph)
 ```
 
-#0 Load Node and Edge list (Check Alignment of Node and Edge List)
+# 0 Load Node and Edge list (Check Alignment of Node and Edge List)
 ```{r echo=FALSE, message=FALSE , results="hide"}
 no_films <- 11
 
@@ -47,7 +47,7 @@ all$nodes <- 0
 all$edges <- 0
 ```
 
-Nest Node and EdgeList in dataframe
+Nest Node and Edge List in dataframe
 ```{r message=FALSE, warning=FALSE}
 for (i in 1:no_films){
   all[i,]$edges <- nest(all_edges[[i]])
@@ -67,7 +67,7 @@ Check Dataframe
 print (all %>% select(n,year,movie))
 ```
 
-#1 Data Exploration: Raw Network Statistics
+# 1 Data Exploration: Raw Network Statistics
 Stats Table
 ```{r}
 compare_df <- all %>% 
@@ -119,7 +119,7 @@ compare_df
 ```
 
 Comparing with Year
-**Lower Transitivity over the Years
++ Lower Transitivity over the Years
 ```{r}
 par(mfrow = c(2,3))
 plot(compare_df$year, compare_df$modularity, main = "modularity")
@@ -130,10 +130,10 @@ plot(compare_df$year, compare_df$dia, main = "dia")
 ```
 
 
-#2 Data Cleaning: Filtering Nodes
-2a/ Initial Plots (undirected, self loops, WEIGHTED)
-- Problems with lack of labels, networks also very messy and unnecessary convulated
-- Black nodes, seem to be unimportant, thought we were able to remove it
+# 2 Data Cleaning: Filtering Nodes
+## 2a/ Initial Plots (undirected, self loops, WEIGHTED)
++ Problems with lack of labels, networks also very messy and unnecessary convulated
++ Black nodes, seem to be unimportant, thought we were able to remove it
 ```{r fig.width = 15, fig.asp = .62, warning=FALSE}
 for (x in 1:no_films){
   node_list <- data.frame(all[x,]$nodes)
@@ -183,10 +183,10 @@ for (x in 1:no_films){
 }
 ```
 
-2b/ Filtering "Un-important" People? by Frequency Count [Scene Count 2 and Below]
-- Learnt that "importance" is hard to define theoretically
-- Low scene count actors might have high betweeness (disconnected the node) - Tititanic and Eternal Sunshine
-**The utterance count/ scene count might not have a direct rls with importance (centrality) [Search further]
+## 2b/ Filtering "Un-important" People? by Frequency Count [Scene Count 2 and Below]
++ Learnt that "importance" is hard to define theoretically
++ Low scene count actors might have high betweeness (disconnected the node) - Tititanic and Eternal Sunshine
++ The utterance count/ scene count might not have a direct rls with importance (centrality) [Search further]
 ```{r fig.width = 15, fig.asp = .62, warning=FALSE}
 
 for (x in 1:no_films){
@@ -250,7 +250,7 @@ for (x in 1:no_films){
 }
 ```
 
-2c/ Final Plotting by Gender
+## 2c/ Final Plotting by Gender
 ```{r fig.width = 15, fig.asp = .62, warning=FALSE}
 #x=1
 compare_df$asst = 0
@@ -318,10 +318,10 @@ for (x in 1:no_films){
 ```
 
 
-#3 ASSORTATIVE MIXING [Macro]
-3a/ Gender Assortative over Time?
-- Seems like "Gender dynamics" are more POLARIZED
-- Gender differences seems to play greater roles
+# 3 ASSORTATIVE MIXING [Macro]
+## 3a/ Gender Assortative over Time?
++ Seems like "Gender dynamics" are more POLARIZED
++ Gender differences seems to play greater roles
 ```{r}
 #par(mfrow = c(2,1))
 plot(x=compare_df$year, 
@@ -342,8 +342,8 @@ abline(lm(abs(compare_df$asst)~compare_df$year), col="green") # regression line 
 #compare_df
 ```
 
-3b/ Plotting by Communities
-- <INSERT HOW COMMUNITIES ARE DECIDED IN ROMANCE MOVIES>
+## 3b/ Plotting by Communities
++ Communities tend to be decided by subplot
 ```{r fig.width = 15, fig.asp = .62, warning=FALSE}
 #x=2
 for (x in 1:no_films){
@@ -394,8 +394,7 @@ text(-1.2, 1.2, paste("Modularity, Q =", round(max(com$modularity),3)))
 #4 CENTRALITY [Micro]
 How does good representation look like?
 
-4a/ Understanding Main Characters
-- <OBSERVE>
+## 4a/ Understanding Main Characters
 ```{r fig.width = 15, fig.asp = .62, warning=FALSE}
 #x=1
 
@@ -536,8 +535,7 @@ text(eig[charB], max(den$y) * 6/7, paste("TOP", round(pval * 100, 1), "%"), pos 
 }
 ```
 
-4b/ Understanding Overall Roles of Characters
-- <OBSERVE>
+## 4b/ Understanding Overall Roles of Characters
 ```{r fig.asp=.9, fig.width=15, warning=FALSE}
 for (x in 1:no_films){
 

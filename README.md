@@ -7,9 +7,9 @@ Ryan and Dina
 rm(list = ls())
 ```
 
-\#0 Load Node and Edge list (Check Alignment of Node and Edge List)
+# 0 Load Node and Edge list (Check Alignment of Node and Edge List)
 
-Nest Node and EdgeList in dataframe
+Nest Node and Edge List in dataframe
 
 ``` r
 for (i in 1:no_films){
@@ -44,7 +44,9 @@ print (all %>% select(n,year,movie))
     ## 10 10 2014                  Theory of Everything
     ## 11  5 2016                            La La Land
 
-\#1 Data Exploration: Raw Network Statistics Stats Table
+# 1 Data Exploration: Raw Network Statistics
+
+Stats Table
 
 ``` r
 compare_df <- all %>% 
@@ -119,7 +121,7 @@ compare_df
     ## 10 2.122507   3
     ## 11 2.255914   5
 
-Comparing with Year \*\*Lower Transitivity over the Years
+Comparing with Year + Lower Transitivity over the Years
 
 ``` r
 par(mfrow = c(2,3))
@@ -132,10 +134,16 @@ plot(compare_df$year, compare_df$dia, main = "dia")
 
 ![](SNA_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
-\#2 Data Cleaning: Filtering Nodes 2a/ Initial Plots (undirected, self
-loops, WEIGHTED) - Problems with lack of labels, networks also very
-messy and unnecessary convulated - Black nodes, seem to be unimportant,
-thought we were able to remove it
+# 2 Data Cleaning: Filtering Nodes
+
+## 2a/ Initial Plots (undirected, self loops, WEIGHTED)
+
+  - Problems with lack of labels, networks also very messy and
+    unnecessary convulated
+  - Black nodes, seem to be unimportant, thought we were able to remove
+    it
+
+<!-- end list -->
 
 ``` r
 for (x in 1:no_films){
@@ -188,12 +196,15 @@ for (x in 1:no_films){
 
 ![](SNA_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-7-2.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-7-3.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-7-4.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-7-5.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-7-6.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-7-7.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-7-8.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-7-9.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-7-10.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-7-11.png)<!-- -->
 
-2b/ Filtering “Un-important” People? by Frequency Count \[Scene Count 2
-and Below\] - Learnt that “importance” is hard to define theoretically -
-Low scene count actors might have high betweeness (disconnected the
-node) - Tititanic and Eternal Sunshine \*\*The utterance count/ scene
-count might not have a direct rls with importance (centrality) \[Search
-further\]
+## 2b/ Filtering “Un-important” People? by Frequency Count \[Scene Count 2 and Below\]
+
+  - Learnt that “importance” is hard to define theoretically
+  - Low scene count actors might have high betweeness (disconnected the
+    node) - Tititanic and Eternal Sunshine
+  - The utterance count/ scene count might not have a direct rls with
+    importance (centrality) \[Search further\]
+
+<!-- end list -->
 
 ``` r
 for (x in 1:no_films){
@@ -259,7 +270,7 @@ for (x in 1:no_films){
 
 ![](SNA_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-8-2.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-8-3.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-8-4.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-8-5.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-8-6.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-8-7.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-8-8.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-8-9.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-8-10.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-8-11.png)<!-- -->
 
-2c/ Final Plotting by Gender
+## 2c/ Final Plotting by Gender
 
 ``` r
 #x=1
@@ -329,9 +340,14 @@ for (x in 1:no_films){
 
 ![](SNA_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-9-2.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-9-3.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-9-4.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-9-5.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-9-6.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-9-7.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-9-8.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-9-9.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-9-10.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-9-11.png)<!-- -->
 
-\#3 ASSORTATIVE MIXING \[Macro\] 3a/ Gender Assortative over Time? -
-Seems like “Gender dynamics” are more POLARIZED - Gender differences
-seems to play greater roles
+# 3 ASSORTATIVE MIXING \[Macro\]
+
+## 3a/ Gender Assortative over Time?
+
+  - Seems like “Gender dynamics” are more POLARIZED
+  - Gender differences seems to play greater roles
+
+<!-- end list -->
 
 ``` r
 #par(mfrow = c(2,1))
@@ -362,8 +378,11 @@ abline(lm(abs(compare_df$asst)~compare_df$year), col="green") # regression line 
 #compare_df
 ```
 
-3b/ Plotting by Communities -
-<INSERT HOW COMMUNITIES ARE DECIDED IN ROMANCE MOVIES>
+## 3b/ Plotting by Communities
+
+  - Communities tend to be decided by subplot
+
+<!-- end list -->
 
 ``` r
 #x=2
@@ -415,7 +434,7 @@ text(-1.2, 1.2, paste("Modularity, Q =", round(max(com$modularity),3)))
 
 \#4 CENTRALITY \[Micro\] How does good representation look like?
 
-4a/ Understanding Main Characters - <OBSERVE>
+## 4a/ Understanding Main Characters
 
 ``` r
 #x=1
@@ -559,7 +578,7 @@ text(eig[charB], max(den$y) * 6/7, paste("TOP", round(pval * 100, 1), "%"), pos 
 
 ![](SNA_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-3.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-4.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-5.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-6.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-7.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-8.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-9.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-10.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-11.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-12.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-13.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-14.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-15.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-16.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-17.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-18.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-19.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-20.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-21.png)<!-- -->![](SNA_files/figure-gfm/unnamed-chunk-12-22.png)<!-- -->
 
-4b/ Understanding Overall Roles of Characters - <OBSERVE>
+## 4b/ Understanding Overall Roles of Characters
 
 ``` r
 for (x in 1:no_films){
