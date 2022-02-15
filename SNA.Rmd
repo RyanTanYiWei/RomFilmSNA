@@ -58,12 +58,13 @@ for (i in 1:no_films){
   
   all[i,]$nodes <- nest(nod)
 }
+
+all = all %>% arrange(year)
 ```
 
 Check Dataframe
 ```{r}
-all = all %>% arrange(year)
-head(all)
+print (all %>% select(n,year,movie))
 ```
 
 #1 Data Exploration: Raw Network Statistics
